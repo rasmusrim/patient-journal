@@ -1,5 +1,6 @@
 package com.rasmusrim.patient.journal.controllers;
 
+import com.rasmusrim.patient.journal.models.Patient;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -24,11 +25,9 @@ public class PatientFormController {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Both fields as mandatory");
             alert.showAndWait();
         } else {
-            /*var patient = new Patient();
+            Patient patient = new Patient();
             patient.setFirstName(firstName.getText());
-            patient.setLastName(lastName.getText());*/
-
-
+            patient.setLastName(lastName.getText());
         }
     }
 
