@@ -1,0 +1,6 @@
+datasource:
+  db:
+    username:
+    password:
+    url: jdbc:sqlite:data
+    driver: org.sqlite.JDBC

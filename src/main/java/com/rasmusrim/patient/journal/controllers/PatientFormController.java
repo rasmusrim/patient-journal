@@ -28,6 +28,7 @@ public class PatientFormController {
             Patient patient = new Patient();
             patient.setFirstName(firstName.getText());
             patient.setLastName(lastName.getText());
+
         }
     }
 
