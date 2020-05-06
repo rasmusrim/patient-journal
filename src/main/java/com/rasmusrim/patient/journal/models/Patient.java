@@ -1,37 +1,22 @@
 package com.rasmusrim.patient.journal.models;
 
-import io.ebean.Model;
+import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name="patient")
-public class Patient extends Model {
-    @Id
+@Getter
+@Setter @NoArgsConstructor
+@Table
+public class Patient {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(length=100)
     private String firstName;
-
-    @Column(length=100)
     private String lastName;
+    private String address;
 
-    public String getFirstName() {
-        return firstName;
-    }
+    @Column(nullable = false, columnDefinition = "int default 0")
+    private int age;
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 }
