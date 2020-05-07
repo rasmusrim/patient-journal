@@ -32,7 +32,8 @@ dependencies {
     compile group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
     compile group: 'org.hibernate', name: 'hibernate-core', version: '5.4.15.Final'
     compile group: 'com.h2database', name: 'h2', version: '1.4.200'
-
+    compile "com.github.javafaker:javafaker:1.0.2"
+    compile "org.hibernate:hibernate-search-orm:5.8.2.Final"
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
