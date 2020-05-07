@@ -33,29 +33,19 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
 
-
-        testPersistence();
-        //System.exit(0);
+        DatabaseService.createConnection();
+        addDummyData();
 
     }
 
-    private void testPersistence() {
-        var databaseService = DatabaseService.getInstance();
-        var session = databaseService.getSession();
+    private void addDummyData() {
 
         Patient patient = new Patient();
         patient.setFirstName("Rasmus");
         patient.setLastName("Rimestad");
-        //session.persist(patient);
 
-        patient = new Patient();
-        patient.setFirstName("Anette");
-        patient.setLastName("Danbolt Rimestad");
-        session.persist(patient);
+        patient.save();
 
-        Transaction transact = session.beginTransaction();
-        transact.commit();
-        session.close();
 
     }
 

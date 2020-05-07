@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Getter
 @Setter @NoArgsConstructor
 @Table
-public class Patient {
+public class Patient extends PersistableModel {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 

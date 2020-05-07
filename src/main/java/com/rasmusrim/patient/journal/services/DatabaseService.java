@@ -9,7 +9,7 @@ import org.hibernate.service.ServiceRegistry;
 
 public class DatabaseService {
     private static DatabaseService instance = null;
-    private SessionFactory sessionFactory;
+    private static SessionFactory sessionFactory;
 
     // private constructor restricted to this class itself
     private DatabaseService() {
@@ -18,6 +18,10 @@ public class DatabaseService {
         ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(conf.getProperties()).build();
 
         sessionFactory = conf.buildSessionFactory(serviceRegistry);
+    }
+
+    public static void createConnection() {
+        DatabaseService.getInstance();
     }
 
     public Session getSession() {
