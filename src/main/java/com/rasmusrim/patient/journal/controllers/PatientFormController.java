@@ -1,6 +1,7 @@
 package com.rasmusrim.patient.journal.controllers;
 
 import com.rasmusrim.patient.journal.models.Patient;
+import com.rasmusrim.patient.journal.repositories.PatientRepository;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -16,18 +17,25 @@ public class PatientFormController {
     @FXML
     private TextField lastName;
 
+    private Patient patient;
+
     public void closeForm(MouseEvent event) {
         ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
     }
 
     public void OkButtonClicked(MouseEvent event) {
+        System.out.println("Patient: " + patient);
+
         if(!isValid()) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Both fields as mandatory");
             alert.showAndWait();
         } else {
-            Patient patient = new Patient();
             patient.setFirstName(firstName.getText());
             patient.setLastName(lastName.getText());
+
+            var patientRepository = new PatientRepository();
+            patientRepository.persist(patient);
+            closeForm(event);
 
         }
     }
@@ -37,4 +45,9 @@ public class PatientFormController {
 
     }
 
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+        firstName.setText(patient.getFirstName());
+        lastName.setText(patient.getLastName());
+    }
 }

@@ -24,4 +24,15 @@ public class Patient extends PersistableModel {
     @Column(nullable = false, columnDefinition = "int default 0")
     private int age;
 
+    public long getId() {
+        return id;
+    }
+
+    public String toString()
+    {
+        return id + ": " + lastName + ", " + firstName;
+    }
+
 }
+
+

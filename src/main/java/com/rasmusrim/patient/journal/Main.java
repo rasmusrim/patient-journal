@@ -42,7 +42,7 @@ public class Main extends Application {
     private void addDummyData() {
         Faker faker = new Faker();
 
-        for (int i = 0; i < 500_000; i++) {
+        for (int i = 0; i < 5_000; i++) {
             System.out.println(i);
             Patient patient = new Patient();
             patient.setFirstName(faker.name().firstName());

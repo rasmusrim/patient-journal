@@ -4,14 +4,9 @@ import com.rasmusrim.patient.journal.services.DatabaseService;
 import org.hibernate.Transaction;
 
 abstract public class PersistableModel {
-    public void save() {
-        var databaseService = DatabaseService.getInstance();
-        var session = databaseService.getSession();
+    abstract public long getId();
 
-        session.persist(this);
-        Transaction transact = session.beginTransaction();
-        transact.commit();
-        session.close();
+    public void save() {
 
     }
 }
