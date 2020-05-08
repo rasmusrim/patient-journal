@@ -58,11 +58,12 @@ public class MainFormController {
 
         PatientFormController controller = loader.<PatientFormController>getController();
         controller.setPatient(patient);
+        controller.setMainFormController(this);
 
         stage.show();
     }
 
-    public void searchForPatients(KeyEvent keyEvent) {
+    public void searchForPatients() {
 
         if (searchQueryFieldControl.getText().trim().length() > 2) {
             long start = System.currentTimeMillis();

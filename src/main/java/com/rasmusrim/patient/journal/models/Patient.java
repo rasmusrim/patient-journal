@@ -30,7 +30,7 @@ public class Patient extends PersistableModel {
 
     public String toString()
     {
-        return id + ": " + lastName + ", " + firstName;
+        return lastName + ", " + firstName;
     }
 
 }

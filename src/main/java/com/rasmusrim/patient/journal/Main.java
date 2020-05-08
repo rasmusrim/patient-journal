@@ -2,6 +2,7 @@ package com.rasmusrim.patient.journal;
 
 import com.github.javafaker.Faker;
 import com.rasmusrim.patient.journal.models.Patient;
+import com.rasmusrim.patient.journal.repositories.PatientRepository;
 import com.rasmusrim.patient.journal.services.DatabaseService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -41,13 +42,14 @@ public class Main extends Application {
 
     private void addDummyData() {
         Faker faker = new Faker();
+        PatientRepository patientRepository = new PatientRepository();
 
         for (int i = 0; i < 5_000; i++) {
             System.out.println(i);
             Patient patient = new Patient();
             patient.setFirstName(faker.name().firstName());
             patient.setLastName(faker.name().lastName());
-            patient.save();
+            patientRepository.persist(patient);
 
         }
 

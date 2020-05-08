@@ -18,9 +18,12 @@ public class PatientFormController {
     private TextField lastName;
 
     private Patient patient;
+    private MainFormController mainFormController;
 
     public void closeForm(MouseEvent event) {
+        mainFormController.searchForPatients();
         ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
+
     }
 
     public void OkButtonClicked(MouseEvent event) {
@@ -49,5 +52,9 @@ public class PatientFormController {
         this.patient = patient;
         firstName.setText(patient.getFirstName());
         lastName.setText(patient.getLastName());
+    }
+
+    public void setMainFormController(MainFormController mainFormController) {
+        this.mainFormController = mainFormController;
     }
 }
